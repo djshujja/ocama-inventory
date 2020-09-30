@@ -46,4 +46,53 @@ router.post("/", async (req, res) => {
   }
 });
 
+// router.delete('/:productId', async (req , res) => {
+    
+//     const product = Product.findOne({productId: req.params.productId})
+
+//     if(product == null || product "") {
+//       return res.status(404).send(`No product with ID: ${req.params.productId} is found in the database!`)
+//     }
+//   }
+// )
+
+router.delete('/:productId', async (req, res) =>{
+  const product = await Product.findOne({productId: req.params.productId})
+
+    if(product == null || product == "" ) {
+      return res.status(404).send(`No product with ID: ${req.params.productId} is found in the database!`)
+    }
+
+    try {
+      product.delete()
+      res.send({
+        data: product,
+        message: "Product is has been successfully deleted!"
+        
+
+      })
+
+
+
+    } catch (e) {
+      res.status(500).send(e)
+    }
+
+})
+
+
+
+router.get('/:productId', async (req, res) => {
+  const product = await Product.findOne({productId: req.params.productId})
+  if(product == null  || product == ""){
+    return res.send(`No Product have been found with ${req.body.params} ID on database.`)
+  }
+  try {
+    res.send(product)
+  } catch (e) {
+    res.status(500).send(e)
+  }
+})
+
+
 module.exports = router;
