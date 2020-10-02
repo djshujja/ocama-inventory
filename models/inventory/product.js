@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const productSchema = new mongoose.Schema({
   productId: {
     type: String,
-    required: true,
+    // required: true,
   },
   name: {
     type: String,
@@ -29,6 +29,34 @@ const productSchema = new mongoose.Schema({
     type: Number,
     required: true,
     default: 0,
+  },
+  partyName: {
+    type: String,
+    required: true,
+  },
+  ptocontact: {
+    type: String,
+    required: true,
+  },
+  address: {
+    type: String,
+    required: true,
+  },
+  telephone: {
+    type: String,
+    required: true,
+  },
+  mobile: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+  },
+  website: {
+    type: String,
+    required: true,
   },
 });
 

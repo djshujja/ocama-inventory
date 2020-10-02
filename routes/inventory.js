@@ -20,7 +20,24 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  const { productId, name, qty, unit, unitPrice, purchasedPrice } = req.body;
+  const {
+    productId,
+    name,
+    qty,
+    unit,
+    unitPrice,
+    purchasedPrice,
+    partyName,
+    ptocontact,
+    address,
+    telephone,
+    mobile,
+    email,
+    website,
+    refNo,
+    ref,
+    nameAddress,
+  } = req.body;
 
   try {
     const newProduct = new Product({
@@ -30,6 +47,16 @@ router.post("/", async (req, res) => {
       unit: unit,
       unitPrice: unitPrice,
       purchasedPrice: purchasedPrice,
+      partyName: partyName,
+      ptocontact: ptocontact,
+      address: address,
+      telephone: telephone,
+      mobile: mobile,
+      email: email,
+      website: website,
+      refNo: refNo,
+      ref: ref,
+      nameAddress: nameAddress,
     });
 
     await newProduct.save();
@@ -47,7 +74,7 @@ router.post("/", async (req, res) => {
 });
 
 // router.delete('/:productId', async (req , res) => {
-    
+
 //     const product = Product.findOne({productId: req.params.productId})
 
 //     if(product == null || product "") {
@@ -56,43 +83,40 @@ router.post("/", async (req, res) => {
 //   }
 // )
 
-router.delete('/:productId', async (req, res) =>{
-  const product = await Product.findOne({productId: req.params.productId})
+router.delete("/:productId", async (req, res) => {
+  const product = await Product.findOne({ productId: req.params.productId });
 
-    if(product == null || product == "" ) {
-      return res.status(404).send(`No product with ID: ${req.params.productId} is found in the database!`)
-    }
+  if (product == null || product == "") {
+    return res
+      .status(404)
+      .send(
+        `No product with ID: ${req.params.productId} is found in the database!`
+      );
+  }
 
-    try {
-      product.delete()
-      res.send({
-        data: product,
-        message: "Product is has been successfully deleted!"
-        
+  try {
+    product.delete();
+    res.send({
+      data: product,
+      message: "Product is has been successfully deleted!",
+    });
+  } catch (e) {
+    res.status(500).send(e);
+  }
+});
 
-      })
-
-
-
-    } catch (e) {
-      res.status(500).send(e)
-    }
-
-})
-
-
-
-router.get('/:productId', async (req, res) => {
-  const product = await Product.findOne({productId: req.params.productId})
-  if(product == null  || product == ""){
-    return res.send(`No Product have been found with ${req.body.params} ID on database.`)
+router.get("/:productId", async (req, res) => {
+  const product = await Product.findOne({ productId: req.params.productId });
+  if (product == null || product == "") {
+    return res.send(
+      `No Product have been found with ${req.body.params} ID on database.`
+    );
   }
   try {
-    res.send(product)
+    res.send(product);
   } catch (e) {
-    res.status(500).send(e)
+    res.status(500).send(e);
   }
-})
-
+});
 
 module.exports = router;

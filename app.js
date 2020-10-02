@@ -3,16 +3,16 @@ const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const inventoryRouter = require("./routes/inventory");
-var cors = require('cors')
-
+const ginfoRouter = require("./routes/ginfo");
+var cors = require("cors");
 
 // app.use(bodyParser.urlencoded({ extended: false }));
-
 
 app.use(cors());
 app.use(bodyParser.json());
 
 app.use("/inventory", inventoryRouter);
+app.use("/ginfo", ginfoRouter);
 
 let url =
   "mongodb+srv://testapp:shujja@cluster0.lzutz.mongodb.net/Product?retryWrites=true&w=majority";
