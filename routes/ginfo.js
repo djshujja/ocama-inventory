@@ -4,12 +4,12 @@ const Ginfo = require("../models/inventory/ginfo");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-  // const products = await Product.find({}).select("-__v -_id");
+  // const ginfo = await Ginfo.find({});
   // try {
-  //   if (products == null || products == "") {
-  //     return res.send({ message: "No products found" });
+  //   if (ginfo == null || ginfo == "") {
+  //     return res.send({ message: "No Information found" });
   //   }
-  //   res.send(products);
+  //   res.send(ginfo);
   // } catch (e) {
   //   res.status(500).send({
   //     error: e,
