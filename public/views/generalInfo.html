@@ -47,7 +47,7 @@
                   type="text"
                   placeholder="Reference No."
                   class="form-control input-md"
-                  required=""
+                  required="true"
                 />
               </div>
             </div>
@@ -60,7 +60,7 @@
                   type="text"
                   placeholder="Enter Address here"
                   class="form-control input-md"
-                  required=""
+                  required="true"
                 ></textarea>
               </div>
             </div>
@@ -73,37 +73,28 @@
                   type="text"
                   placeholder="Enter Reference "
                   class="form-control input-md"
-                  required=""
+                  required="true"
                 />
               </div>
             </div>
+            
           </fieldset>
         </form>
-
+        <div class="form-group row">
+              
+          <label class="col-md-3 control-label" for="slipDate">Date</label>
+          <input type="date" name="slipDate" id="slipDate" class="mr-5 ml-3" style="align-content: center;"/>
+          <button class="btn btn-info ml-5" onclick="fetchDate()">
+            Generate Slip
+          </button>
+        </div>
         <div>
-          <div>
-            <h5 class="mb-0">Generate Slip</h5>
-          </div>
-
-          <div class="card-body">
-            Date
-            <input type="date" name="slipDate" id="slipDate" />
-            <button class="btn btn-info" onclick="fetchDate()">
-              Generate Slip
-            </button>
+                   
           </div>
         </div>
 
         <div class="main-container">
-          <div class="form-button">
-            <button
-              id="submit"
-              name="submit"
-              class="btn btn-success m-auto d-block"
-              onclick="submitInfoData()"
-            >
-              Save Data
-            </button>
+         
           </div>
         </div>
       </div>
@@ -126,6 +117,7 @@
       </a>
       <a href="/">Product's Form</a>
       <a href="/generate-slip">Generate Slip</a>
+      <a href="/database">Database</a>
     </div>
   </body>
 </html>

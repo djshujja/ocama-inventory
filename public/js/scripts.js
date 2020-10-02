@@ -27,7 +27,7 @@ async function submitData() {
   qty = document.getElementById("qty").value;
   unit = document.getElementById("unit").value;
   unitPrice = document.getElementById("unitPrice").value;
-  purchasedPrice = document.getElementById("purchasedPrice").value;
+  // purchasedPrice = document.getElementById("purchasedPrice").value;
   partyName = document.getElementById("partyName").value;
   personToContact = document.getElementById("personToContact").value;
   address = document.getElementById("address").value;
@@ -44,7 +44,7 @@ async function submitData() {
     qty: qty,
     unit: unit,
     unitPrice: unitPrice,
-    purchasedPrice: purchasedPrice,
+    // purchasedPrice: purchasedPrice,
     partyName: partyName,
     personToContact: personToContact,
     address: address,
@@ -90,15 +90,22 @@ async function renderProducts() {
   let a = await API();
 
   let html = "";
-  a.forEach((product) => {
+  a.forEach((product, i) => {
     let htmlSegment = `
             <tr class="singleRow">
-              <th scope="row">${product.productId}</th>
+              <th scope="row">${i + 1}</th>
               <td>${product.name}</td>
               <td>${product.qty}</td>
               <td>${product.unit}</td>
-              <td><button class="btn btn-danger">Remove</button></td>
-            </tr>
+              <td>${product.unitPrice}</td>
+              <td>${product.personToContact}</td>
+              <td>${product.partyName}</td>
+              <td>${product.mobile}</td>
+              <td>${product.telephone}</td>
+              <td>${product.email}</td>
+              <td>${product.website}</td>
+              <td>${product.address}</td>
+                         </tr>
             `;
 
     html += htmlSegment;
@@ -107,6 +114,8 @@ async function renderProducts() {
   let productsRow = document.querySelector(".products-row");
   productsRow.innerHTML = html;
 
+  //DataTable
+  $("#database-table").DataTable();
   ///REMOVE TABLE ROW
 
   var removeCartItemButtons = document.getElementsByClassName("btn-danger");
@@ -165,10 +174,10 @@ async function renderSlip() {
   GetRefNoID.innerHTML = `<p>${GetFinalInfo.refNo}</p>`;
 
   let GetRefID = document.getElementById("refID");
-  GetRefID.innerHTML = `<p>${GetFinalInfo.ref}</p>`;
+  GetRefID.innerHTML = `<p>Ref: ${GetFinalInfo.ref}</p>`;
 
   let GetAddressNameID = document.getElementById("addressNameID");
-  GetAddressNameID.innerHTML = `<h6>${GetFinalInfo.nameAddress}</h6>`;
+  GetAddressNameID.innerHTML = `<p>${GetFinalInfo.nameAddress}</p>`;
 
   let items = JSON.parse(sessionStorage.getItem("slip"));
   console.log(items);
@@ -192,3 +201,15 @@ async function renderSlip() {
   let productsRow = document.querySelector(".products-row");
   productsRow.innerHTML = html;
 }
+
+// function searchTable() {
+//   document.getElementById("search-input").addEventListener("keyup", () => {
+//     let value = this.value;
+//     console.log(value);
+//   });
+
+// }
+
+// $(document).ready(function () {
+//   $("#database-table").DataTable();
+// });

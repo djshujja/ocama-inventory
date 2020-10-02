@@ -58,7 +58,7 @@
                           type="text"
                           placeholder="Reference No."
                           class="form-control input-md"
-                          required=""
+                          required="true"
                         />
                       </div>
                     </div>
@@ -71,7 +71,7 @@
                           type="text"
                           placeholder="Enter Address here"
                           class="form-control input-md"
-                          required=""
+                          required="true"
                         ></textarea>
                       </div>
                     </div>
@@ -84,7 +84,7 @@
                           type="text"
                           placeholder="Enter Reference "
                           class="form-control input-md"
-                          required=""
+                          required="true"
                         />
                       </div>
                     </div> -->
@@ -101,7 +101,7 @@
                           type="text"
                           placeholder="Enter product name "
                           class="form-control input-md"
-                          required=""
+                          required="true"
                         />
                       </div>
                     </div>
@@ -118,7 +118,7 @@
                           type="text"
                           placeholder="Enter product ID here"
                           class="form-control input-md"
-                          required=""
+                          required="true"
                         />
                       </div>
                     </div> -->
@@ -133,7 +133,7 @@
                           type="text"
                           placeholder="Enter Quantity"
                           class="form-control input-md"
-                          required=""
+                          required="true"
                         />
                       </div>
                     </div>
@@ -162,27 +162,12 @@
                           type="text"
                           placeholder="Enter unit price"
                           class="form-control input-md"
-                          required=""
+                          required="true"
                         />
                       </div>
                     </div>
         
-                    <!-- Text input-->
-                    <div class="form-group row">
-                      <label class="col-md-3 control-label" for="purchasedPrice"
-                        >Purchased Price</label
-                      >
-                      <div class="col-md-9">
-                        <input
-                          id="purchasedPrice"
-                          name="purchasedPrice"
-                          type="text"
-                          placeholder="Enter purchased price"
-                          class="form-control input-md"
-                          required=""
-                        />
-                      </div>
-                    </div>
+                  
               </form>
             </div>
           </div>
@@ -206,7 +191,7 @@
                     type="text"
                     placeholder="Enter Party name "
                     class="form-control input-md"
-                    required=""
+                    required="true"
                   />
                 </div>
               </div>
@@ -223,7 +208,7 @@
                     type="text"
                     placeholder="Enter Person's Contact"
                     class="form-control input-md"
-                    required=""
+                    required="true"
                   />
                 </div>
               </div>
@@ -238,7 +223,7 @@
                     type="text"
                     placeholder="Enter Address"
                     class="form-control input-md"
-                    required=""
+                    required="true"
                   />
                 </div>
               </div>
@@ -255,7 +240,7 @@
                     type="text"
                     placeholder="Enter Telephone No."
                     class="form-control input-md"
-                    required=""
+                    required="true"
                   />
                 </div>
               </div>
@@ -272,7 +257,7 @@
                     type="text"
                     placeholder="Enter unit price"
                     class="form-control input-md"
-                    required=""
+                    required="true"
                   />
                 </div>
               </div>
@@ -289,7 +274,7 @@
                     type="text"
                     placeholder="Enter Email"
                     class="form-control input-md"
-                    required=""
+                    required="true"
                   />
                 </div>
               </div>
@@ -305,7 +290,7 @@
                     type="text"
                     placeholder="Enter Website link"
                     class="form-control input-md"
-                    required=""
+                    required="true"
                   />
                 </div>
               </div>
@@ -317,21 +302,21 @@
           
         
         </div>
-        <div class="form-button">
-          <div class="row">
-            <div class="col-md-3">
+        <div class="text-center" ><p class="lead">Please <b style="color: red;">Save Data</b> before <b style="color: red;">Generating Slip</b></p></div>
+        <div class="btn-group text-center d-block m-auto"
+         style="align-items: center;">
+          
+            
 
               <button
               id="submit"
               name="submit"
-              class="btn btn-success m-auto d-block"
+              class="btn btn-success m-auto d-block w-50"
               onclick="submitData()"
               >
               Save Data
             </button>
-          </div>
-          <div class="col-md-3">
-            <a  style="color: white; text-decoration: none;" href="/generate-slip"><button class="btn btn-info">Generate Slip</button></a>
+            <a style="color: white; text-decoration: none;" href="/generate-slip"><button class="btn btn-warning w-50 mt-2">Generate Slip</button></a>
           </div>
         </div>
       </div>      
@@ -358,6 +343,7 @@
       </a>
       <a href="/">Product's Form</a>
       <a href="/generate-slip">Generate Slip</a>
+      <a href="/database">Database</a>
     </div>
   </body>
 </html>

@@ -31,8 +31,15 @@ app.get("/the-slip", (req, res) => {
   res.sendFile(path.join(__dirname + "/public/views/slip.html"));
 });
 
-let url =
-  "mongodb+srv://testapp:shujja@cluster0.lzutz.mongodb.net/Product?retryWrites=true&w=majority";
+app.get("/database", (req, res) => {
+  // res.sendFile(path.join(__dirname + "addProducts.html"));
+  res.sendFile(path.join(__dirname + "/public/views/database.html"));
+});
+
+// let url =
+//   "mongodb+srv://testapp:shujja@cluster0.lzutz.mongodb.net/Product?retryWrites=true&w=majority";
+
+let url = "mongodb://localhost/os_inventory";
 
 mongoose.connect(url, {
   useNewUrlParser: true,
