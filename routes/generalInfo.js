@@ -1,5 +1,5 @@
 const express = require("express");
-const Ginfo = require("../models/inventory/ginfo");
+const GeneralInfo = require("../models/inventory/generalInfo");
 
 const router = express.Router();
 
@@ -22,7 +22,7 @@ router.post("/", async (req, res) => {
   const { refNo, ref, nameAddress } = req.body;
 
   try {
-    const dataInfo = new Ginfo({
+    const dataInfo = new GeneralInfo({
       refNo: refNo,
       ref: ref,
       nameAddress: nameAddress,

@@ -22,19 +22,19 @@ const productSchema = new mongoose.Schema({
   },
   unitPrice: {
     type: Number,
-    required: true,
+    // required: true,
     default: 0,
   },
   purchasedPrice: {
     type: Number,
-    required: true,
+    // required: true,
     default: 0,
   },
   partyName: {
     type: String,
     required: true,
   },
-  ptocontact: {
+  personToContact: {
     type: String,
     required: true,
   },
