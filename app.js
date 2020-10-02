@@ -4,15 +4,32 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const inventoryRouter = require("./routes/inventory");
 const generalInfo = require("./routes/generalInfo");
-var cors = require("cors");
+const cors = require("cors");
+const path = require("path");
 
 // app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(cors());
 app.use(bodyParser.json());
-
+app.use(express.static("public"));
 app.use("/inventory", inventoryRouter);
 app.use("/slip", generalInfo);
+// app.use("view-engine", "html");
+
+app.get("/", (req, res) => {
+  // res.sendFile(path.join(__dirname + "addProducts.html"));
+  res.sendFile(path.join(__dirname + "/public/views/addProducts.html"));
+});
+
+app.get("/generate-slip", (req, res) => {
+  // res.sendFile(path.join(__dirname + "addProducts.html"));
+  res.sendFile(path.join(__dirname + "/public/views/generalInfo.html"));
+});
+
+app.get("/the-slip", (req, res) => {
+  // res.sendFile(path.join(__dirname + "addProducts.html"));
+  res.sendFile(path.join(__dirname + "/public/views/slip.html"));
+});
 
 let url =
   "mongodb+srv://testapp:shujja@cluster0.lzutz.mongodb.net/Product?retryWrites=true&w=majority";

@@ -73,15 +73,26 @@ router.post("/", async (req, res) => {
   }
 });
 
-// router.delete('/:productId', async (req , res) => {
+router.post("/find", async (req, res) => {
+  try {
+    let { date } = req.body;
+    const data = await Product.find({
+      createdDate: {
+        $gte: new Date(new Date(date).setHours(00, 00, 00)),
+        $lte: new Date(new Date(date).setHours(23, 59, 59)),
+      },
+    });
 
-//     const product = Product.findOne({productId: req.params.productId})
+    res.send(data);
 
-//     if(product == null || product "") {
-//       return res.status(404).send(`No product with ID: ${req.params.productId} is found in the database!`)
-//     }
-//   }
-// )
+    // res.render("/views/slip", {
+    //   data: data,
+    // });
+  } catch (error) {
+    console.log(error);
+    res.send(error);
+  }
+});
 
 router.delete("/:productId", async (req, res) => {
   const product = await Product.findOne({ productId: req.params.productId });

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/layout.css" />
+    <link rel="stylesheet" href="../styles/bootstrap/css/bootstrap.min.css" />
+    <script defer src="../js/jQuery.min.js"></script>
+    <script defer src="../styles/bootstrap/js/bootstrap.min.js"></script>
+    <script defer src="../styles/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+    <script defer src="../js/scripts.js" async></script>
+    <title>Add Products</title>
+  </head>
+  <body>
+    <div id="content" >
+      <span class="slide" id="slide">
+        <a href="#" onclick="onSlideMenu()">
+          <svg
+            width="1em"
+            height="1em"
+            viewBox="0 0 16 16"
+            class="bi bi-list"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+            />
+          </svg>
+        </a>
+      </span>
+      <div id="accordion" class="main-container">
+        <div class="card">
+          <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <h5 class="mb-0" >
+              Products
+            </h5>
+          </div>
+      
+          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+              <form action="">
+                <form>
+                  <fieldset>
+                    <!-- Form Name -->
+                    <legend class="text-center m-4">Product Form</legend>
+                    <!-- <div class="form-group row">
+                      <label class="col-md-3 control-label" for="name"
+                        >Reference No.</label
+                      >
+                      <div class="col-md-9">
+                        <input
+                          id="refNo"
+                          name="refNo"
+                          type="text"
+                          placeholder="Reference No."
+                          class="form-control input-md"
+                          required=""
+                        />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 control-label" for="name">Address</label>
+                      <div class="col-md-9">
+                        <textarea
+                          id="nameAddress"
+                          name="nameAddress"
+                          type="text"
+                          placeholder="Enter Address here"
+                          class="form-control input-md"
+                          required=""
+                        ></textarea>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 control-label" for="name">Reference</label>
+                      <div class="col-md-9">
+                        <input
+                          id="ref"
+                          name="ref"
+                          type="text"
+                          placeholder="Enter Reference "
+                          class="form-control input-md"
+                          required=""
+                        />
+                      </div>
+                    </div> -->
+
+                    <!-- Text input-->
+                    <div class="form-group row">
+                      <label class="col-md-3 control-label" for="name"
+                        >Product Name</label
+                      >
+                      <div class="col-md-9">
+                        <input
+                          id="productName"
+                          name="name"
+                          type="text"
+                          placeholder="Enter product name "
+                          class="form-control input-md"
+                          required=""
+                        />
+                      </div>
+                    </div>
+        
+                    <!-- Text input-->
+                    <!-- <div class="form-group row">
+                      <label class="col-md-3 control-label" for="productId"
+                        >Product ID</label
+                      > -->
+                      <!-- <div class="col-md-9">
+                        <input
+                          id="productId"
+                          name="productId"
+                          type="text"
+                          placeholder="Enter product ID here"
+                          class="form-control input-md"
+                          required=""
+                        />
+                      </div>
+                    </div> -->
+        
+                    <!-- Text input-->
+                    <div class="form-group row">
+                      <label class="col-md-3 control-label" for="qty">Quantity</label>
+                      <div class="col-md-9">
+                        <input
+                          id="qty"
+                          name="qty"
+                          type="text"
+                          placeholder="Enter Quantity"
+                          class="form-control input-md"
+                          required=""
+                        />
+                      </div>
+                    </div>
+        
+                    <!-- Select Basic -->
+                    <div class="form-group row">
+                      <label class="col-md-3 control-label" for="unit">Unit</label>
+                      <div class="col-md-9">
+                        <select id="unit" name="unit" class="form-control">
+                          <option value="KG">KG</option>
+                          <option value="Packets">Packets</option>
+                          <option value="No.">No.</option>
+                        </select>
+                      </div>
+                    </div>
+        
+                    <!-- Text input-->
+                    <div class="form-group row">
+                      <label class="col-md-3 control-label" for="unitPrice"
+                        >Unit Price</label
+                      >
+                      <div class="col-md-9">
+                        <input
+                          id="unitPrice"
+                          name="unitPrice"
+                          type="text"
+                          placeholder="Enter unit price"
+                          class="form-control input-md"
+                          required=""
+                        />
+                      </div>
+                    </div>
+        
+                    <!-- Text input-->
+                    <div class="form-group row">
+                      <label class="col-md-3 control-label" for="purchasedPrice"
+                        >Purchased Price</label
+                      >
+                      <div class="col-md-9">
+                        <input
+                          id="purchasedPrice"
+                          name="purchasedPrice"
+                          type="text"
+                          placeholder="Enter purchased price"
+                          class="form-control input-md"
+                          required=""
+                        />
+                      </div>
+                    </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            <h5 class="mb-0" >
+              Customer Form
+            </h5>
+          </div>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body">
+              <div class="form-group row">
+                <label class="col-md-3 control-label" for="name"
+                  >Party Name</label
+                >
+                <div class="col-md-9">
+                  <input
+                    id="partyName"
+                    name="partyName"
+                    type="text"
+                    placeholder="Enter Party name "
+                    class="form-control input-md"
+                    required=""
+                  />
+                </div>
+              </div>
+  
+              <!-- Text input-->
+              <div class="form-group row">
+                <label class="col-md-3 control-label" for="productId"
+                  >Person to Contact</label
+                >
+                <div class="col-md-9">
+                  <input
+                    id="personToContact"
+                    name="personToContact"
+                    type="text"
+                    placeholder="Enter Person's Contact"
+                    class="form-control input-md"
+                    required=""
+                  />
+                </div>
+              </div>
+  
+              <!-- Text input-->
+              <div class="form-group row">
+                <label class="col-md-3 control-label" for="qty">Address</label>
+                <div class="col-md-9">
+                  <input
+                    id="address"
+                    name="address"
+                    type="text"
+                    placeholder="Enter Address"
+                    class="form-control input-md"
+                    required=""
+                  />
+                </div>
+              </div>
+  
+              <!-- Select Basic -->
+              <div class="form-group row">
+                <label class="col-md-3 control-label" for="unit"
+                  >Telephone No.</label
+                >
+                <div class="col-md-9">
+                  <input
+                    id="telephone"
+                    name="telephone"
+                    type="text"
+                    placeholder="Enter Telephone No."
+                    class="form-control input-md"
+                    required=""
+                  />
+                </div>
+              </div>
+  
+              <!-- Text input-->
+              <div class="form-group row">
+                <label class="col-md-3 control-label" for="unitPrice"
+                  >Mobile No.</label
+                >
+                <div class="col-md-9">
+                  <input
+                    id="mobile"
+                    name="mobile"
+                    type="text"
+                    placeholder="Enter unit price"
+                    class="form-control input-md"
+                    required=""
+                  />
+                </div>
+              </div>
+  
+              <!-- Text input-->
+              <div class="form-group row">
+                <label class="col-md-3 control-label" for="purchasedPrice">
+                  Email</label
+                >
+                <div class="col-md-9">
+                  <input
+                    id="email"
+                    name="email"
+                    type="text"
+                    placeholder="Enter Email"
+                    class="form-control input-md"
+                    required=""
+                  />
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label class="col-md-3 control-label" for="purchasedPrice"
+                  >Website</label
+                >
+                <div class="col-md-9">
+                  <input
+                    id="website"
+                    name="website"
+                    type="text"
+                    placeholder="Enter Website link"
+                    class="form-control input-md"
+                    required=""
+                  />
+                </div>
+              </div>
+            </fieldset>
+          </form>
+          
+            </div>
+          </div>
+          
+        
+        </div>
+        <div class="form-button">
+          <div class="row">
+            <div class="col-md-3">
+
+              <button
+              id="submit"
+              name="submit"
+              class="btn btn-success m-auto d-block"
+              onclick="submitData()"
+              >
+              Save Data
+            </button>
+          </div>
+          <div class="col-md-3">
+            <a  style="color: white; text-decoration: none;" href="/generate-slip"><button class="btn btn-info">Generate Slip</button></a>
+          </div>
+        </div>
+      </div>      
+      </div>
+    
+     
+    </div>
+
+    <div id="menu" class="sidebar">
+      <a href="#" class="close" onclick="closeSlideMenu()">
+        <svg
+          width="1em"
+          height="1em"
+          viewBox="0 0 16 16"
+          class="bi bi-x-square-fill"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"
+          />
+        </svg>
+      </a>
+      <a href="/">Product's Form</a>
+      <a href="/generate-slip">Generate Slip</a>
+    </div>
+  </body>
+</html>
