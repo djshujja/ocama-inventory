@@ -8,7 +8,16 @@ function closeSlideMenu() {
 }
 
 let name, prodID, qty, unitPrice, unit, purchasedPrice;
-let partyname, personToContact, address, telephone, mobile, email, website;
+let partyname,
+  personToContact,
+  address,
+  telephone,
+  mobile,
+  email,
+  website,
+  refNo,
+  ref,
+  nameAddress;
 let fetchingDate;
 
 // POST data of Product & Customer
@@ -110,6 +119,16 @@ async function renderProducts() {
 }
 
 async function fetchDate() {
+  ref = document.getElementById("ref").value;
+  refNo = document.getElementById("refNo").value;
+  nameAddress = document.getElementById("nameAddress").value;
+
+  let GenInfo = {
+    nameAddress: nameAddress,
+    ref: ref,
+    refNo: refNo,
+  };
+
   fetchingDate = document.getElementById("slipDate").value;
   if (fetchingDate == "" || fetchingDate == null) {
     return alert("Please enter a valid date");
@@ -133,11 +152,24 @@ async function fetchDate() {
       console.error("Error:", error);
     });
 
+  sessionStorage.setItem("GetInfo", JSON.stringify(GenInfo));
+
   window.location.href = "/the-slip";
-  // console.log(sessionStorage.getItem("slip"));
 }
 
 async function renderSlip() {
+  let GetFinalInfo = JSON.parse(sessionStorage.getItem("GetInfo"));
+
+  console.log(GetFinalInfo.refNo);
+  let GetRefNoID = document.getElementById("refNoID");
+  GetRefNoID.innerHTML = `<p>${GetFinalInfo.refNo}</p>`;
+
+  let GetRefID = document.getElementById("refID");
+  GetRefID.innerHTML = `<p>${GetFinalInfo.ref}</p>`;
+
+  let GetAddressNameID = document.getElementById("addressNameID");
+  GetAddressNameID.innerHTML = `<h6>${GetFinalInfo.nameAddress}</h6>`;
+
   let items = JSON.parse(sessionStorage.getItem("slip"));
   console.log(items);
   let html = "";

@@ -17,21 +17,31 @@
     <div class="container">
       <div class="row mt-4">
         <div class="col-md-8 mt-4">
-          <p>JTL/JUI/9898/87877 JLKIJ/lKIJK</p>
-          <p class="w-50">
+          <span id="refNoID"></span>
+          <p class="w-50" id="addressNameID">
             Directorate of Technical Procurement Dr AQ KHAN RESEARCH
             LABARTOTIRES RWP
           </p>
         </div>
         <div class="col-md-4">
-          <p>15, September 2020</p>
+          <p> Dated :
+            <script>
+                var today = new Date();
+                var dd = String(today.getDate()).padStart(2, '0');
+                var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                var yyyy = today.getFullYear();
+
+                today = mm + '-' + dd + '-' + yyyy;
+                document.write(today);
+          </script>
+          </p>
         </div>
       </div>
       <br>
       <div class="row">
         <div class="col-md-9">
           <h6>REQUEST FOR QUOTATION</h2>
-          <h6>REF : KRL LETTER NO. 16/7231/DT3-LMSH@MDSK DATED 10-08-2020</h2>
+          <h6 id="refID">REF : KRL LETTER NO. 16/7231/DT3-LMSH@MDSK DATED 10-08-2020</h2>
           <p>
             Dear Sir<br />
             We are pleased to quote the most competitive rae for the subject for
