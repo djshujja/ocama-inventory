@@ -35,9 +35,8 @@ async function submitData() {
   mobile = document.getElementById("mobile").value;
   email = document.getElementById("email").value;
   website = document.getElementById("website").value;
-  // nameAddress = document.getElementById("nameAddress").value;
-  // refNo = document.getElementById("refNo").value;
-  // ref = document.getElementById("ref").value;
+  refNo = document.getElementById("refNo").value;
+  ref = document.getElementById("ref").value;
 
   data = {
     name: name,
@@ -53,10 +52,10 @@ async function submitData() {
     email: email,
     website: website,
     // nameAddress: nameAddress,
-    // refNo: refNo,
-    // ref: ref,
+    refNo: refNo,
+    ref: ref,
   };
-  console.log(data);
+  //console.log(data);
   await fetch("http://localhost:8000/inventory", {
     method: "POST", // or 'PUT'
     headers: {
@@ -85,6 +84,22 @@ async function API() {
   return data;
 }
 
+async function GETPARTYINFO() {
+  let partyData = await API();
+
+  let options = "";
+  partyData.forEach((partyData) => {
+    let htmlSegment = `
+    <option value="${partyData.partyName}">
+            `;
+
+    options += htmlSegment;
+  });
+
+  let productsRow = document.querySelector("#buyers");
+  productsRow.innerHTML = options;
+}
+
 // To Render Products on Table
 async function renderProducts() {
   let a = await API();
@@ -94,6 +109,8 @@ async function renderProducts() {
     let htmlSegment = `
             <tr class="singleRow">
               <th scope="row">${i + 1}</th>
+              <td>${product.refNo}</td>
+              <td>${product.ref}</td>
               <td>${product.name}</td>
               <td>${product.qty}</td>
               <td>${product.unit}</td>
@@ -200,6 +217,35 @@ async function renderSlip() {
 
   let productsRow = document.querySelector(".products-row");
   productsRow.innerHTML = html;
+}
+
+async function callBuyerInfo() {
+  var NameOfParty = document.getElementById("partyName").value;
+
+  let getPartyInfo = {
+    partyName: NameOfParty,
+  };
+  await fetch("http://localhost:8000/inventory/getParty", {
+    method: "POST", // or 'PUT'
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(getPartyInfo),
+  })
+    .then((response) => response.json())
+    .then((Partydata) => {
+      console.log("Success:", Partydata);
+      document.getElementById("personToContact").value =
+        Partydata.personToContact;
+      document.getElementById("address").value = Partydata.address;
+      document.getElementById("telephone").value = Partydata.telephone;
+      document.getElementById("mobile").value = Partydata.mobile;
+      document.getElementById("email").value = Partydata.email;
+      document.getElementById("website").value = Partydata.website;
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
 }
 
 // function searchTable() {

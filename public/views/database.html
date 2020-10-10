@@ -1,87 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../styles/layout.css" />
-    <link rel="stylesheet" href="../styles/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../styles/datatables/datatables.min.css" />
-    <script defer src="../js/jQuery.min.js"></script>
-    <script defer src="../styles/bootstrap/js/bootstrap.min.js"></script>
-    <script defer src="../styles/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script defer src="../styles/datatables/datatables.min.js"></script>
 
-    <script defer src="../js/scripts.js" async></script>
-    <title>Add Products</title>
-  </head>
-  <body onload="renderProducts()">
-    <div id="content">
-      <span class="slide" id="slide">
-        <a href="#" onclick="onSlideMenu()">
-          <svg
-            width="1em"
-            height="1em"
-            viewBox="0 0 16 16"
-            class="bi bi-list"
-            fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
-            />
-          </svg>
-        </a>
-      </span>
-      <div class="">
-        <div class="">
-          <h2 style="text-align: center">Products</h2>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../styles/layout.css" />
+  <link rel="stylesheet" href="../styles/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../styles/datatables/datatables.min.css" />
+  <script defer src="../js/jQuery.min.js"></script>
+  <script defer src="../styles/bootstrap/js/bootstrap.min.js"></script>
+  <script defer src="../styles/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script defer src="../styles/datatables/datatables.min.js"></script>
 
-          <table
-            class="table"
-            style="width: 100%; margin: auto"
-            id="database-table"
-          >
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Description</th>
-                <th scope="col">Qty</th>
-                <th scope="col">Unit</th>
-                <th scope="col">Unit Price</th>
-                <th scope="col">Contact Person</th>
-                <th scope="col">Party Name</th>
-                <th scope="col">Mobile</th>
-                <th scope="col">Telephone</th>
-                <th scope="col">Email</th>
-                <th scope="col">Website</th>
-                <th scope="col">Address</th>
-              </tr>
-            </thead>
-            <tbody class="products-row"></tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-    <div id="menu" class="sidebar">
-      <a href="#" class="close" onclick="closeSlideMenu()">
-        <svg
-          width="1em"
-          height="1em"
-          viewBox="0 0 16 16"
-          class="bi bi-x-square-fill"
-          fill="currentColor"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"
-          />
+  <script defer src="../js/scripts.js" async></script>
+  <title>Database</title>
+</head>
+
+<body onload="renderProducts()">
+  <div id="content">
+    <span class="slide" id="slide">
+      <a href="#" onclick="onSlideMenu()">
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-list" fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
         </svg>
       </a>
-      <a href="/">Product's Form</a>
-      <a href="/generate-slip">Generate Slip</a>
-      <a href="/database">Database</a>
+    </span>
+    <div class="">
+      <div class="">
+        <h2 style="text-align: center">DATABASE</h2>
+
+        <table class="table table-bordered" style="width: 100%; margin: auto" id="database-table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Ref No.</th>
+              <th scope="col">Ref</th>
+              <th scope="col">Description</th>
+              <th scope="col">Qty</th>
+              <th scope="col">Unit</th>
+              <th scope="col">Unit Price</th>
+              <th scope="col">Contact Person</th>
+              <th scope="col">Party Name</th>
+              <th scope="col">Mobile</th>
+              <th scope="col">Telephone</th>
+              <th scope="col">Email</th>
+              <th scope="col">Website</th>
+              <th scope="col">Address</th>
+            </tr>
+          </thead>
+          <tbody class="products-row"></tbody>
+        </table>
+      </div>
     </div>
-  </body>
+  </div>
+  <div id="menu" class="sidebar">
+    <a href="#" class="close" onclick="closeSlideMenu()">
+      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x-square-fill" fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd"
+          d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
+      </svg>
+    </a>
+    <a href="/">Forms</a>
+    <a href="/database">Our Database</a>
+  </div>
+</body>
+
 </html>

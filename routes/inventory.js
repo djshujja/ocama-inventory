@@ -74,6 +74,7 @@ router.post("/", async (req, res) => {
 });
 
 router.post("/find", async (req, res) => {
+  //res.send("HEY");
   try {
     let { date } = req.body;
     const data = await Product.find({
@@ -92,6 +93,37 @@ router.post("/find", async (req, res) => {
     console.log(error);
     res.send(error);
   }
+});
+
+router.post("/getParty", async (req, res) => {
+  //res.send("HEY");
+  try {
+    let { partyName } = req.body;
+
+    if (partyName == null || partyName == "") {
+      return res.send("No PartyName Recieved");
+    }
+
+    const getPartyInfo = await Product.findOne({
+      partyName: partyName,
+    });
+
+    res.send(getPartyInfo);
+  } catch (error) {
+    console.log(error);
+    res.send(error);
+  }
+
+  // res.send("HEY THERE");
+  //   try {
+  //     let { partyName } = req.body;
+
+  //     const getPartyInfo = await Product.findOne({ partyName: partyName });
+
+  //     res.send(getPartyInfo);
+  //   } catch {
+  //     res.status(500).send(e);
+  //   }
 });
 
 router.delete("/:productId", async (req, res) => {
@@ -116,18 +148,29 @@ router.delete("/:productId", async (req, res) => {
   }
 });
 
-router.get("/:productId", async (req, res) => {
-  const product = await Product.findOne({ productId: req.params.productId });
-  if (product == null || product == "") {
-    return res.send(
-      `No Product have been found with ${req.body.params} ID on database.`
-    );
-  }
-  try {
-    res.send(product);
-  } catch (e) {
-    res.status(500).send(e);
-  }
-});
+// router.get("/:productId", async (req, res) => {
+//   const product = await Product.findOne({ productId: req.params.productId });
+//   if (product == null || product == "") {
+//     return res.send(
+//       `No Product have been found with ${req.body.params} ID on database.`
+//     );
+//   }
+//   try {
+//     res.send(product);
+//   } catch (e) {
+//     res.status(500).send(e);
+//   }
+// });
 
 module.exports = router;
+
+// res.send("HEY THERE");
+//   try {
+//     let { partyName } = req.body;
+
+//     const getPartyInfo = await Product.findOne({ partyName: partyName });
+
+//     res.send(getPartyInfo);
+//   } catch {
+//     res.status(500).send(e);
+//   }

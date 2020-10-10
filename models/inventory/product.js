@@ -63,6 +63,14 @@ const productSchema = new mongoose.Schema({
     default: Date,
     required: true,
   },
+  refNo: {
+    type: String,
+    required: true,
+  },
+  ref: {
+    type: String,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("Products", productSchema);
